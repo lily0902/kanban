@@ -34,7 +34,7 @@
             {{ errors.title }}
           </div>
           <div class="input-info">
-            {{ formData.title.length }}/100 字符
+            {{ formData.title.length }}/100 字元
           </div>
         </div>
 
@@ -55,7 +55,7 @@
             {{ errors.description }}
           </div>
           <div class="input-info">
-            {{ formData.description.length }}/500 字符
+            {{ formData.description.length }}/500 字元
           </div>
         </div>
 
@@ -95,7 +95,7 @@
             class="btn btn-primary"
             :disabled="!isFormValid || loading"
           >
-            <span v-if="loading">保存中...</span>
+            <span v-if="loading">儲存中...</span>
             <span v-else>{{ isEditing ? '更新' : '建立' }}</span>
           </button>
         </div>
@@ -222,7 +222,7 @@ export default {
 
         emit('save', cardData)
       } catch (error) {
-        console.error('保存卡片失败:', error)
+        console.error('儲存卡片失敗:', error)
       } finally {
         loading.value = false
       }
@@ -239,7 +239,7 @@ export default {
     onMounted(async () => {
       initFormData()
       
-      // 聚焦到标题输入框
+      // 聚焦到標題輸入框
       await nextTick()
       if (titleInput.value) {
         titleInput.value.focus()

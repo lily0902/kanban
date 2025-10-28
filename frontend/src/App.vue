@@ -163,7 +163,7 @@ export default {
         
         showNotification(`卡片已移至「${getStatusLabel(newStatus)}」`)
       } catch (error) {
-        console.error('更新卡片状态失败:', error)
+        console.error('更新卡片狀態失敗:', error)
         showNotification('更新卡片狀態失敗，請稍後重試', 'error')
         
         // 恢復原始狀態
@@ -232,7 +232,7 @@ export default {
         handleCancelEdit()
       } catch (error) {
         console.error('儲存卡片失敗:', error)
-        showNotification('保存卡片失敗，請稍後重試', 'error')
+        showNotification('儲存卡片失敗，請稍後重試', 'error')
       }
     }
 
