@@ -9,7 +9,7 @@ const api = axios.create({
   }
 })
 
-// 請求放愰器
+// 請求攔截器
 api.interceptors.request.use(
   config => {
     console.log('發送請求:', config.method?.toUpperCase(), config.url)
@@ -21,7 +21,7 @@ api.interceptors.request.use(
   }
 )
 
-// 回應政愰器
+// 回應攔截器
 api.interceptors.response.use(
   response => {
     console.log('收到回應:', response.status, response.config.url)

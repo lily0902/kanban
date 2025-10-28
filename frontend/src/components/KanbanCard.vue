@@ -80,9 +80,9 @@ export default {
       inProgress: "進行中",
       inReview: "待驗收",
       done: "已完成",
-    };
+    }
 
-    // 获取状态标签
+    // 獲取狀態標籤
     const getStatusLabel = (status) => {
       return statusLabels[status] || status;
     };
@@ -114,9 +114,9 @@ export default {
       if (diffDays < 7) return `${diffDays}天前`;
 
       return formatDate(dateString).split(" ")[0];
-    };
+    }
 
-    // 处理拖拽开始
+    // 處理拖拽開始
     const handleDragStart = (event) => {
       isDragging.value = true;
       event.dataTransfer.effectAllowed = "move";
@@ -128,9 +128,9 @@ export default {
 
       console.log("卡片拖拽開始:", props.card.title, "ID:", props.card.id);
       emit("drag-start", props.card);
-    };
+    }
 
-    // 处理拖拽结束
+    // 處理拖拽結束
     const handleDragEnd = (event) => {
       isDragging.value = false;
       console.log("卡片拖拽結束");
@@ -323,7 +323,7 @@ export default {
   border-radius: 50%;
 }
 
-/* 响应式设计 */
+/* 響應式設計 */
 @media (max-width: 768px) {
   .kanban-card {
     padding: 0.75rem;
@@ -344,11 +344,11 @@ export default {
   }
 
   .card-actions {
-    opacity: 1; /* 在移动设备上始终显示操作按钮 */
+    opacity: 1; /* 在行動裝置上始終顯示操作按鈕 */
   }
 }
 
-/* 拖拽样式增强 */
+/* 拖拽樣式增強 */
 .kanban-card[draggable="true"] {
   cursor: grab;
 }
@@ -357,7 +357,7 @@ export default {
   cursor: grabbing;
 }
 
-/* 无障碍访问 */
+/* 無障礙存取 */
 .kanban-card:focus {
   outline: 2px solid #667eea;
   outline-offset: 2px;

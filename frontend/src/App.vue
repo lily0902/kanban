@@ -34,7 +34,7 @@
       </div>
     </main>
 
-    <!-- 新增/编辑卡片模态框 -->
+    <!-- 新增/編輯卡片模態框 -->
     <CardModal
       v-if="showNewCardModal || showEditCardModal"
       :card="editingCard"
@@ -74,7 +74,7 @@ export default {
     CardModal
   },
   setup() {
-    // 响应式数据
+    // 響應式資料
     const cards = ref([])
     const loading = ref(false)
     const showNewCardModal = ref(false)
@@ -95,7 +95,7 @@ export default {
       { id: 'done', title: '已完成', color: '#28a745' }
     ]
 
-    // 显示通知
+    // 顯示通知
     const showNotification = (message, type = 'success') => {
       notification.message = message
       notification.type = type
@@ -106,31 +106,31 @@ export default {
       }, 3000)
     }
 
-    // 根据状态获取卡片
+    // 根據狀態獲取卡片
     const getCardsByStatus = (status) => {
       return cards.value.filter(card => card.status === status)
     }
 
-    // 加载所有卡片
+    // 載入所有卡片
     const loadCards = async () => {
       try {
         loading.value = true
         const response = await cardService.getAllCards()
         cards.value = response.data.cards
       } catch (error) {
-        console.error('加载卡片失败:', error)
+        console.error('載入卡片失敗:', error)
         showNotification('載入卡片失敗，請稍後重試', 'error')
       } finally {
         loading.value = false
       }
     }
 
-    // 刷新卡片
+    // 重新整理卡片
     const refreshCards = () => {
       loadCards()
     }
 
-    // 处理卡片移动
+    // 處理卡片移動
     const handleCardMoved = async (cardId, newStatus) => {
       console.log('處理卡片移動 - ID:', cardId, '新狀態:', newStatus)
       
@@ -185,13 +185,13 @@ export default {
       return labels[status] || status
     }
 
-    // 处理编辑卡片
+    // 處理編輯卡片
     const handleEditCard = (card) => {
       editingCard.value = { ...card }
       showEditCardModal.value = true
     }
 
-    // 处理删除卡片
+    // 處理刪除卡片
     const handleDeleteCard = async (cardId) => {
       if (!confirm('確定要刪除這張卡片嗎？')) {
         return
@@ -202,12 +202,12 @@ export default {
         cards.value = cards.value.filter(c => c.id !== cardId)
         showNotification('卡片刪除成功')
       } catch (error) {
-        console.error('删除卡片失败:', error)
+        console.error('刪除卡片失敗:', error)
         showNotification('刪除卡片失敗，請稍後重試', 'error')
       }
     }
 
-    // 处理保存卡片
+    // 處理儲存卡片
     const handleSaveCard = async (cardData) => {
       try {
         if (showEditCardModal.value) {
@@ -231,19 +231,19 @@ export default {
         
         handleCancelEdit()
       } catch (error) {
-        console.error('保存卡片失败:', error)
+        console.error('儲存卡片失敗:', error)
         showNotification('保存卡片失敗，請稍後重試', 'error')
       }
     }
 
-    // 取消编辑
+    // 取消編輯
     const handleCancelEdit = () => {
       showNewCardModal.value = false
       showEditCardModal.value = false
       editingCard.value = null
     }
 
-    // 组件挂载时加载数据
+    // 元件掛載時載入資料
     onMounted(() => {
       loadCards()
     })

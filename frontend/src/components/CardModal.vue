@@ -124,14 +124,14 @@ export default {
     const titleInput = ref(null)
     const loading = ref(false)
 
-    // 表单数据
+    // 表單資料
     const formData = reactive({
       title: '',
       description: '',
       status: 'todo'
     })
 
-    // 错误信息
+    // 錯誤資訊
     const errors = reactive({
       title: '',
       description: '',
@@ -146,7 +146,7 @@ export default {
       { value: 'done', label: '已完成' }
     ]
 
-    // 表单验证
+    // 表單驗證
     const isFormValid = computed(() => {
       return formData.title.trim().length > 0 && 
              !errors.title && 
@@ -154,7 +154,7 @@ export default {
              !errors.status
     })
 
-    // 初始化表单数据
+    // 初始化表單資料
     const initFormData = () => {
       if (props.isEditing && props.card) {
         formData.title = props.card.title || ''
@@ -168,14 +168,14 @@ export default {
       clearErrors()
     }
 
-    // 清除错误信息
+    // 清除錯誤資訊
     const clearErrors = () => {
       errors.title = ''
       errors.description = ''
       errors.status = ''
     }
 
-    // 验证表单
+    // 驗證表單
     const validateForm = () => {
       clearErrors()
       let isValid = true
@@ -205,7 +205,7 @@ export default {
       return isValid
     }
 
-    // 处理表单提交
+    // 處理表單提交
     const handleSubmit = async () => {
       if (!validateForm()) {
         return
@@ -228,14 +228,14 @@ export default {
       }
     }
 
-    // 处理点击遮罩层
+    // 處理點擊遮罩層
     const handleOverlayClick = (event) => {
       if (event.target === event.currentTarget) {
         emit('cancel')
       }
     }
 
-    // 组件挂载时初始化
+    // 元件掛載時初始化
     onMounted(async () => {
       initFormData()
       
@@ -445,7 +445,7 @@ export default {
   box-shadow: none;
 }
 
-/* 动画 */
+/* 動畫 */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -466,7 +466,7 @@ export default {
   }
 }
 
-/* 响应式设计 */
+/* 響應式設計 */
 @media (max-width: 768px) {
   .modal-overlay {
     padding: 0.5rem;
@@ -498,7 +498,7 @@ export default {
   }
 }
 
-/* 键盘导航支持 */
+/* 鍵盤導航支援 */
 .form-input:focus,
 .form-textarea:focus,
 .form-select:focus,

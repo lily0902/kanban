@@ -6,7 +6,7 @@ const cardRoutes = require("./routes/cards");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// 中间件配置
+// 中介軟體配置
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // 路由配置
 app.use("/api/cards", cardRoutes);
 
-// 基础路由
+// 基礎路由
 app.get("/", (req, res) => {
   res.json({
     message: "Kanban 看板系統 API 伺服器運行中",
@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
   });
 });
 
-// 错误处理中间件
+// 錯誤處理中介軟體
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({
@@ -37,7 +37,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-// 404 处理
+// 404 處理
 app.use("*", (req, res) => {
   res.status(404).json({
     error: "路由不存在",

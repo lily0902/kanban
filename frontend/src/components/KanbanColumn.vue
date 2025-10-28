@@ -78,33 +78,33 @@ export default {
     const isDragOver = ref(false)
     const dragCounter = ref(0)
 
-    // 处理拖拽开始
+    // 處理拖拽開始
     const handleDragStart = (card, event) => {
       console.log('開始拖拽卡片:', card.title, '狀態:', card.status)
       // 不再需要存儲 draggedCard，因為會通過 event 傳遞
     }
 
-    // 处理拖拽结束
+    // 處理拖拽結束
     const handleDragEnd = () => {
       console.log('拖拽結束')
       isDragOver.value = false
       dragCounter.value = 0
     }
 
-    // 处理拖拽悬停
+    // 處理拖拽懸停
     const handleDragOver = (event) => {
       event.preventDefault()
       event.dataTransfer.dropEffect = 'move'
     }
 
-    // 处理拖拽进入
+    // 處理拖拽進入
     const handleDragEnter = (event) => {
       event.preventDefault()
       dragCounter.value++
       isDragOver.value = true
     }
 
-    // 处理拖拽离开
+    // 處理拖拽離開
     const handleDragLeave = (event) => {
       event.preventDefault()
       dragCounter.value--
@@ -113,7 +113,7 @@ export default {
       }
     }
 
-    // 处理放置
+    // 處理放置
     const handleDrop = (event) => {
       event.preventDefault()
       event.stopPropagation()
@@ -279,7 +279,7 @@ export default {
   gap: 0.75rem;
 }
 
-/* 卡片列表动画 */
+/* 卡片列表動畫 */
 .card-list-enter-active,
 .card-list-leave-active {
   transition: all 0.3s ease;
@@ -304,7 +304,7 @@ export default {
   100% { transform: rotate(360deg); }
 }
 
-/* 响应式设计 */
+/* 響應式設計 */
 @media (max-width: 768px) {
   .column-header {
     padding: 0.75rem 1rem;

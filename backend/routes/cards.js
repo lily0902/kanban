@@ -73,7 +73,7 @@ router.get('/:id', (req, res) => {
   }
 });
 
-// 創建新卡片
+// 建立新卡片
 router.post('/', (req, res) => {
   try {
     const { title, description, status } = req.body;
